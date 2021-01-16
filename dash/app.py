@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[4]:
 import pandas as pd
 import numpy as np
 
@@ -16,9 +12,7 @@ import dash_bootstrap_components as dbc
 import dash_table as dt
 import dash_table.FormatTemplate as FormatTemplate
 
-# In[2]:
 
-# In[9]:
 # Read Data
 merge_df_tsla = pd.read_csv("TSLA_price_merge_df.csv")
 merge_df = pd.read_csv("AAPL_price_merge_df.csv")
