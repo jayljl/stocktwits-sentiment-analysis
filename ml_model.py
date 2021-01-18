@@ -24,9 +24,7 @@ def train_model_naive_bayes(training_data):
     ])
 
     # This is where we define the values for GridSearchCV to iterate over
-    parameters = {'bow__ngram_range': [(1, 1), (1, 2)],
-                  'tfidf__use_idf': (True, False),
-                  'classifier__alpha': (1e-2, 1e-3)}
+    parameters = {*Insert own Params*}
 
     # Do 10-fold cross validation for each of the 6 possible combinations of the above params
     grid = GridSearchCV(pipeline, cv=10, param_grid=parameters, verbose=1)
@@ -46,12 +44,11 @@ def train_model_logistic_regression(training_data):
     pipeline = Pipeline([
         ('bow', CountVectorizer()),  # strings to token integer counts
         ('tfidf', TfidfTransformer()),  # integer counts to weighted TF-IDF scores
-        ('classifier', LogisticRegression(class_weight='balanced'))  # train on TF-IDF vectors w/ Naive Bayes classifier
+        ('classifier', LogisticRegression())  # train on TF-IDF vectors w/ Naive Bayes classifier
     ])
 
     # this is where we define the values for GridSearchCV to iterate over
-    parameters = {'bow__ngram_range': [(1, 1), (1, 2)],
-                  'tfidf__use_idf': (True, False)}
+    parameters = {*Insert own Params*)}
 
     # do 10-fold cross validation for each of the 6 possible combinations of the above params
     grid = GridSearchCV(pipeline, cv=10, param_grid=parameters, verbose=1)
