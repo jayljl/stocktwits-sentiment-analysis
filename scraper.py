@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 
 
-def scraper(ticker, latest_xhr_id='0', max_volume=50000, start_date='2020-01-01', end_date='2020-12-31'):
+def scraper(ticker, latest_xhr_id='<INSERT API ID>', max_volume=50000, start_date='2020-01-01', end_date='2020-12-31'):
 
     # Push Errors if scrape volume less than 0:
     if max_volume <= 0:
