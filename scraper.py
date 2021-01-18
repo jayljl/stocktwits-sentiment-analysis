@@ -27,26 +27,14 @@ def scraper(ticker, latest_xhr_id='<INSERT API ID>', max_volume=50000, start_dat
     for _ in range(max_volume):
         try:
             headers = {
-                'authority': 'api.stocktwits.com',
-                'accept': 'application/json',
-                'authorization': 'OAuth 3fef37cfee9e4c337cfe5cf505215076cc92d6b5',
-                'user-agent': ('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                               'Chrome/87.0.4280.88 Safari/537.36'),
-                'origin': 'https://stocktwits.com',
-                'sec-fetch-site': 'same-site',
-                'sec-fetch-mode': 'cors',
-                'sec-fetch-dest': 'empty',
-                'referer': 'https://stocktwits.com/',
-                'accept-language': 'en-US,en;q=0.9',
+                <INSERT OWN HEADERS>
             }
 
             params = (
-                ('filter', 'all'),
-                ('limit', '20'),
-                ('max', scroll_list[-1]),
+                <INSERT OWN PARAMS>
             )
 
-            response = requests.get(f'https://api.stocktwits.com/api/2/streams/symbol/{ticker}.json',
+            response = requests.get(f'<API LINK>',
                                     headers=headers, params=params)
             content = response.json()
             messages = content['messages']
