@@ -24,7 +24,7 @@ def train_model_naive_bayes(training_data):
     ])
 
     # This is where we define the values for GridSearchCV to iterate over
-    parameters = {*Insert own Params*}
+    parameters = {<INSERT OWN PARAMS>}
 
     # Do 10-fold cross validation for each of the 6 possible combinations of the above params
     grid = GridSearchCV(pipeline, cv=10, param_grid=parameters, verbose=1)
@@ -48,7 +48,7 @@ def train_model_logistic_regression(training_data):
     ])
 
     # this is where we define the values for GridSearchCV to iterate over
-    parameters = {*Insert own Params*)}
+    parameters = {<INSERT OWN PARAMS>)}
 
     # do 10-fold cross validation for each of the 6 possible combinations of the above params
     grid = GridSearchCV(pipeline, cv=10, param_grid=parameters, verbose=1)
