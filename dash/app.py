@@ -46,13 +46,21 @@ def total_returns(ema, ticker):
 
 def max_drawdown(ema, ticker):
     if ticker == '$AAPL':
-        df = aapl_strat[f'Portfolio Value EMA {ema}']
-        max_dd = (df.min() - df.iloc[0]) / df.iloc[0]
-        return '{:.2f}%'.format(max_dd * 100)
+        df = aapl_strat[[f'Portfolio Value EMA {ema}']]
+        df["peak"] = df[f'Portfolio Value EMA {ema}'].cummax()
+        df['drawdown'] = df[f'Portfolio Value EMA {ema}'] - df['peak']
+        mdd = df['drawdown'].min()
+        peak_val = df.loc[df['drawdown'] == mdd, 'peak'].item()
+        mdd_per = mdd / peak_val
+        return '{:.2f}%'.format(mdd_per * 100)
     elif ticker == '$TSLA':
-        df = tsla_strat[f'Portfolio Value EMA {ema}']
-        max_dd = (df.min() - df.iloc[0]) / df.iloc[0]
-        return '{:.2f}%'.format(max_dd * 100)
+        df = tsla_strat[[f'Portfolio Value EMA {ema}']]
+        df["peak"] = df[f'Portfolio Value EMA {ema}'].cummax()
+        df['drawdown'] = df[f'Portfolio Value EMA {ema}'] - df['peak']
+        mdd = df['drawdown'].min()
+        peak_val = df.loc[df['drawdown'] == mdd, 'peak'].item()
+        mdd_per = mdd / peak_val
+        return '{:.2f}%'.format(mdd_per * 100)
 
 
 def num_buy_trades(ema, ticker):
